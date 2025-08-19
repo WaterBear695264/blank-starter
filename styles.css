@@ -1,3 +1,16 @@
 body {
     background-color: rgb(115, 187, 255);
 }
+
+#canvas{
+    background-color: rgb(255, 255, 255);
+}
+
+th, td {
+      border: 1px solid #ccc;
+      padding: 8px;
+      text-align: left;
+}
+th {
+      background-color: #f2f2f2;
+}

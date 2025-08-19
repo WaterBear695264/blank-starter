@@ -4,10 +4,30 @@
 <html>
   <head>
     <title>Empty Starter</title>
+    <script src="data.js"></script>
     <link href="styles.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
-    
+    <button id="make">Make Table</button>
+
+    <button id="delete">Delete Table</button>
+
+    <table id="cityTable">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>Model Name</th>
+            <th>RAM</th>
+            <th>storage</th>
+            <th>CPU</th>
+            <th>GPU</th>
+        </tr>
+        </thead>
+        <tbody id="computerbody">
+        <!-- Rows will be inserted here -->
+        </tbody>
+    </table>    
+
     <canvas id="canvas" width = 500 height = 500></canvas>
 
     <button id="button">Save email</button>
