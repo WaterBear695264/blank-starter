@@ -19,35 +19,37 @@ function retrieve () {
 }
 
 function makeTable(){
-    const table = document.querySelector("#cityTable tbody");
-
+    const table = document.querySelector("#computertable tbody");
+    // while (table.firstChild) {
+    //     table.removeChild(myNode.lastChild);
+    // }
     for(let i = 0; i < computerdata.length; i++){
         let row = document.createElement("tr")
         
-        let num = document.createElement("td")
-        num.innterHTML = i+1;
+        let num = document.createElement("td");
+        num.innerHTML = i+1;
 
-        let modelname = document.createElement("td")
-        modelname.innterHTML = computerdata[i].model_name;
+        let modelname = document.createElement("td");
+        modelname.innerHTML = computerdata[i].model_name;
 
-        let ram = document.createElement("td")
-        ram.innterHTML = computerdata[i].ram;
+        let ram = document.createElement("td");
+        ram.innerHTML = computerdata[i].ram;
 
-        let storage = document.createElement("td")
-        storage.innterHTML = computerdata[i].storage;
+        let storage = document.createElement("td");
+        storage.innerHTML = computerdata[i].storage;
 
-        let CPU = computerdata[i].gpu;
-        CPU.innerHTML = computerdata.gpu
+        let cpu = document.createElement("td");
+        cpu.innerHTML = computerdata[i].cpu;
 
-        let GPU = computerdata[i].gpu;
-        GPU.innerHTML = computerdata.gpu
+        let gpu = document.createElement("td");
+        gpu.innerHTML = computerdata[i].gpu;
 
-        row.appendChild(num)
-        row.appendChild(modelname)
-        row.appendChild(ram)
-        row.appendChild(storage)
-        row.appendChild(CPU)
-        row.appendChild(GPU)
-        table.appendChild(row)
+        row.appendChild(num);
+        row.appendChild(modelname);
+        row.appendChild(ram);
+        row.appendChild(storage);
+        row.appendChild(cpu);
+        row.appendChild(gpu);
+        table.appendChild(row);
     }
 }

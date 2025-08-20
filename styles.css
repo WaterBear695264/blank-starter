@@ -7,6 +7,7 @@ body {
 }
 
 th, td {
+      background-color:  white;
       border: 1px solid #ccc;
       padding: 8px;
       text-align: left;
