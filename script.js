@@ -1,7 +1,11 @@
 document.getElementById("button").addEventListener("click",save);
 document.getElementById("button2").addEventListener("click",retrieve);
 document.getElementById("make").addEventListener("click",makeTable);
+document.getElementById("delete").addEventListener("click",deleteTable);
 const output = document.getElementById("output")
+const canvas = document.getElementById("canvas")
+const ctx = canvas.getContext("2d");
+let raf;
 let info = {email: ""};
 
 function save(){
@@ -20,9 +24,9 @@ function retrieve () {
 
 function makeTable(){
     const table = document.querySelector("#computertable tbody");
-    // while (table.firstChild) {
-    //     table.removeChild(myNode.lastChild);
-    // }
+    while (table.firstChild) {
+        table.removeChild(table.lastChild);
+    }
     for(let i = 0; i < computerdata.length; i++){
         let row = document.createElement("tr")
         
@@ -53,3 +57,32 @@ function makeTable(){
         table.appendChild(row);
     }
 }
+
+function deleteTable(){
+    const table = document.querySelector("#computertable tbody");
+    while (table.firstChild) {
+        table.removeChild(table.lastChild);
+    }
+}
+
+let x = 0;
+let y = 0
+function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height)
+    ctx.strokeRect(x, y, 50, 50);
+    ctx.fillStyle = "red";
+    ctx.fill()
+    x++;
+    y++;
+    raf = window.requestAnimationFrame(draw);
+}
+
+draw()
+
+canvas.addEventListener("mouseover", (e) => {
+  raf = window.requestAnimationFrame(draw);
+});
+
+canvas.addEventListener("mouseout", (e) => {
+  window.cancelAnimationFrame(raf);
+});
