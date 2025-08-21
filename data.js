@@ -98,7 +98,5 @@ let computerdata = [
   { "model_name": "Dell Precision 7875 Tower", "ram": "128GB", "storage": "8TB SSD", "cpu": "AMD Ryzen Threadripper PRO 5975WX", "gpu": "NVIDIA RTX A6000" },
   { "model_name": "HP Z8 Fury G5", "ram": "256GB", "storage": "16TB SSD", "cpu": "Intel Xeon w9-3495X", "gpu": "NVIDIA RTX 6000 Ada" },
   { "model_name": "Lenovo ThinkStation P7", "ram": "128GB", "storage": "8TB SSD", "cpu": "Intel Xeon W7-2495X", "gpu": "NVIDIA RTX A6000" },
-  { "model_name": "Apple Mac Pro 2023", "ram": "192GB", "storage": "8TB SSD", "cpu": "Apple M2 Ultra", "gpu": "Integrated 76-core GPU" },
-  { "model_name": "Asus ProArt Station PD5", "ram": "64GB", "storage": "4TB SSD", "cpu": "Intel Core i9-12900K", "gpu": "NVIDIA RTX A4000" }
-
+  { "model_name": "Apple Mac Pro 2023", "ram": "192GB", "storage": "8TB SSD", "cpu": "Apple M2 Ultra", "gpu": "Integrated 76-core GPU" }
 ]

@@ -8,6 +8,16 @@ const ctx = canvas.getContext("2d");
 let raf;
 let info = {email: ""};
 
+class circle{
+    constructor(x, y, radius){
+        this.x = x;
+        this.y = y;
+        this.radius = radius;
+    }
+
+
+}
+
 function save(){
     info.email = document.getElementById("scaminator5000").value;
     let stringified = JSON.stringify(info);
@@ -33,8 +43,14 @@ function makeTable(){
         let num = document.createElement("td");
         num.innerHTML = i+1;
 
+        let link = document.createElement("a")
+        let div = document.createElement("div")
         let modelname = document.createElement("td");
-        modelname.innerHTML = computerdata[i].model_name;
+        a.href = "detail.html?i d = i"
+        div.innerHTML = computerdata[i].model_name;
+        link.append(div)
+        modelname.append(link)
+        
 
         let ram = document.createElement("td");
         ram.innerHTML = computerdata[i].ram;
