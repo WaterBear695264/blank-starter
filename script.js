@@ -46,7 +46,7 @@ function makeTable(){
         let link = document.createElement("a")
         let div = document.createElement("div")
         let modelname = document.createElement("td");
-        a.href = "detail.html?i d = i"
+        link.href = "detail.html?id=" + i
         div.innerHTML = computerdata[i].model_name;
         link.append(div)
         modelname.append(link)
