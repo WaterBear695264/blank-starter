@@ -12,6 +12,10 @@ const id = params.get('id');
 
 let model = computerdata[id]
 
+console.log("yo");
+console.log(document.getElementById("hello").value);
+
+document.getElementById("test").value = "why hello there"
 
 
 display.innerText = "model: " + model.model_name + "\n";
