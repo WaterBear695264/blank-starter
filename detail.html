@@ -3,18 +3,33 @@
   <head>
     <title>Empty Starter</title>
     <script src="data.js"></script>
-    <!-- <link href="css/styles.css" rel="stylesheet" type="text/css" /> -->
+    <link href="styles.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
+    <div id = "show">
+      <div id="output"></div><br>
+      <button id = "makeEdit">Edit</button><br>
+      <a href="index.html">back to list</a>
+    </div>
 
     
-    <div id="output"></div>
+    <div id="edit">
+      <div>model: </div>
+      <input type="text" id="0"><br>
+      <div>ram: </div>
+      <input type="text" id="1" ><br>
+      <div>storage: </div>
+      <input type="text" id="2"><br>
+      <div>cpu: </div>
+      <input type="text" id="3"><br>
+      <div>gpu: </div>
+      <input type="text" id="4"><br>
+      <button id = "saveEdit">Save Edit</button>
+      <button id = "view">view</button><br>
+    </div>
+    
 
-    <input type="text" id="edit">
 
-    <button id = "saveEdit"></button>
-
-    <a href="index.html">back to list</a>
     
     <script src="detail.js"></script>
 

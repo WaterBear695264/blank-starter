@@ -33,6 +33,7 @@ function retrieve () {
 }
 
 function makeTable(){
+    console.log(computerdata)
     const table = document.querySelector("#computertable tbody");
     while (table.firstChild) {
         table.removeChild(table.lastChild);
