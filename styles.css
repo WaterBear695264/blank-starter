@@ -1,19 +1,20 @@
 body {
-    background-color: rgb(115, 187, 255);
+    background-color: rgb(0, 0, 0);
 }
 
 #canvas{
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(0, 0, 0);
 }
 
 th, td {
-      background-color:  white;
-      border: 1px solid #ccc;
+      background-color:  #00b03e;
+      border: 2px solid #00a82a;
       padding: 8px;
       text-align: left;
+      border-radius: 7px;
 }
 th {
-      background-color: #f2f2f2;
+      background-color: #00b03e;
 }
 
 #edit{
