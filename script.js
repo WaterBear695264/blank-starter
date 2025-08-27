@@ -5,6 +5,7 @@ document.getElementById("delete").addEventListener("click",deleteTable);
 const output = document.getElementById("output")
 const canvas = document.getElementById("canvas")
 const ctx = canvas.getContext("2d");
+
 let raf;
 let info = {email: ""};
 
@@ -33,12 +34,14 @@ function retrieve () {
 }
 
 function makeTable(){
+
     console.log(computerdata)
     const table = document.querySelector("#computertable tbody");
     while (table.firstChild) {
         table.removeChild(table.lastChild);
     }
     for(let i = 0; i < computerdata.length; i++){
+        let model = JSON.parse(localStorage.getItem("data"))[i]
         let row = document.createElement("tr")
         
         let num = document.createElement("td");
@@ -48,22 +51,22 @@ function makeTable(){
         let div = document.createElement("div")
         let modelname = document.createElement("td");
         link.href = "detail.html?id=" + i
-        div.innerHTML = computerdata[i].model_name;
+        div.innerHTML = model.model_name;
         link.append(div)
         modelname.append(link)
         
 
         let ram = document.createElement("td");
-        ram.innerHTML = computerdata[i].ram;
+        ram.innerHTML = model.ram;
 
         let storage = document.createElement("td");
-        storage.innerHTML = computerdata[i].storage;
+        storage.innerHTML = model.storage;
 
         let cpu = document.createElement("td");
-        cpu.innerHTML = computerdata[i].cpu;
+        cpu.innerHTML = model.cpu;
 
         let gpu = document.createElement("td");
-        gpu.innerHTML = computerdata[i].gpu;
+        gpu.innerHTML = model.gpu;
 
         row.appendChild(num);
         row.appendChild(modelname);

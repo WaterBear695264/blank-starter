@@ -3,7 +3,8 @@ document.getElementById("makeEdit").addEventListener("click", swap)
 document.getElementById("view").addEventListener("click", swap2)
 // Get the query string from the URL (e.g., ?name=John&age=30)
 const queryString = window.location.search;
-
+let stringy = JSON.stringify(computerdata)
+localStorage.setItem("data", stringy)
 console.log(queryString)
 // Parse it using URLSearchParams
 const params = new URLSearchParams(queryString);
@@ -17,7 +18,6 @@ const editPage = document.getElementById("edit")
 
 const id = params.get('id');
 
-let model = computerdata[id]
 console.log("hello")
 
 function swap(){
@@ -34,12 +34,18 @@ function swap2(){
 function save() {
     for(let i = 0; i < 5; i++){
         console.log(document.getElementById(i.toString()).value)
-        if(document.getElementById(i.toString()).value !== "")
-        computerdata[id][arrOfTypes[i]] = document.getElementById(i.toString()).value
+        if(document.getElementById(i.toString()).value !== ""){
+            JSON.parse(localStorage.getItem("data"))
+            stringy[id][arrOfTypes[i]] = document.getElementById(i.toString()).value
+            localStorage.setItem("data", JSON.stringify(stringy))
+            console.log(localStorage)
+        }
+
     }
 }
 
 function updateText(){
+    let model = JSON.parse(localStorage.getItem("data"))[id]
     display.innerText = "model: " + model.model_name + "\n";
     display.innerText += "ram: " + model.ram + "\n";
     display.innerText += "storage: " + model.storage + "\n";
@@ -49,7 +55,7 @@ function updateText(){
 
 updateText()
 
-console.log(model)
+
 
 
 
