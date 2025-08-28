@@ -3,8 +3,8 @@ document.getElementById("makeEdit").addEventListener("click", swap)
 document.getElementById("view").addEventListener("click", swap2)
 // Get the query string from the URL (e.g., ?name=John&age=30)
 const queryString = window.location.search;
-let stringy = JSON.stringify(computerdata)
-localStorage.setItem("data", stringy)
+let stringy;
+
 console.log(queryString)
 // Parse it using URLSearchParams
 const params = new URLSearchParams(queryString);
@@ -18,7 +18,16 @@ const editPage = document.getElementById("edit")
 
 const id = params.get('id');
 
-console.log("hello")
+console.log("asd;lfkjasd;lkfjas;dklfj")
+
+function defineorigin(){
+    if("data" in localStorage){
+        console.log("wheheeeeeeeeee")
+        return localStorage.getItem("data");
+    }else{
+        return JSON.stringify(computerdata);
+    }
+}
 
 function swap(){
     editPage.style.display = "inline";
@@ -29,16 +38,18 @@ function swap2(){
     editPage.style.display = "none";
     showPage.style.display = "inline";
     updateText()
+    for(let i = 0; i < 5; i++){
+        document.getElementById(i.toString()).value = ""
+    }
 }
 
 function save() {
     for(let i = 0; i < 5; i++){
         console.log(document.getElementById(i.toString()).value)
         if(document.getElementById(i.toString()).value !== ""){
-            JSON.parse(localStorage.getItem("data"))
+            stringy = JSON.parse(localStorage.getItem("data"))
             stringy[id][arrOfTypes[i]] = document.getElementById(i.toString()).value
             localStorage.setItem("data", JSON.stringify(stringy))
-            console.log(localStorage)
         }
 
     }
@@ -53,8 +64,11 @@ function updateText(){
     display.innerText += "gpu: " + model.gpu + "\n";
 }
 
-updateText()
+stringy = defineorigin()
+console.log(stringy)
+localStorage.setItem("data", stringy);
 
+updateText()
 
 
 

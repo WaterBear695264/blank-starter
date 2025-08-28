@@ -1,10 +1,11 @@
 document.getElementById("button").addEventListener("click",save);
 document.getElementById("button2").addEventListener("click",retrieve);
 document.getElementById("make").addEventListener("click",makeTable);
-document.getElementById("delete").addEventListener("click",deleteTable);
+// document.getElementById("lebron").addEventListener("click",makeLebron);
 const output = document.getElementById("output")
 const canvas = document.getElementById("canvas")
 const ctx = canvas.getContext("2d");
+const myBody = document.body;
 
 let raf;
 let info = {email: ""};
@@ -32,6 +33,17 @@ function retrieve () {
     console.log(retrieved)
     output.innerHTML = retrieved.email
 }
+
+function defineorigin(){
+    console.log("data" in localStorage)
+    if("data" in localStorage){
+        return localStorage.getItem("data");
+        
+    }else{
+        return JSON.stringify(computerdata);
+    }
+}
+
 
 function makeTable(){
 
@@ -97,7 +109,12 @@ function draw() {
     raf = window.requestAnimationFrame(draw);
 }
 
+console.log(defineorigin())
+stringy = defineorigin()
+localStorage.setItem("data", stringy);
+
 draw()
+
 
 canvas.addEventListener("mouseover", (e) => {
   raf = window.requestAnimationFrame(draw);
