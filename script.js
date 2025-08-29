@@ -1,6 +1,7 @@
 document.getElementById("button").addEventListener("click",save);
 document.getElementById("button2").addEventListener("click",retrieve);
 document.getElementById("make").addEventListener("click",makeTable);
+// document.getElementById("create").addEventListener("create", creat);
 // document.getElementById("lebron").addEventListener("click",makeLebron);
 const output = document.getElementById("output")
 const canvas = document.getElementById("canvas")
@@ -25,6 +26,10 @@ function save(){
     let stringified = JSON.stringify(info);
     localStorage.setItem("info", stringified);
     console.log(localStorage)
+}
+
+function createElement(){
+
 }
 
 function retrieve () {
@@ -52,7 +57,7 @@ function makeTable(){
     while (table.firstChild) {
         table.removeChild(table.lastChild);
     }
-    for(let i = 0; i < computerdata.length; i++){
+    for(let i = 0; i < JSON.parse(localStorage.getItem("data")).length; i++){
         let model = JSON.parse(localStorage.getItem("data"))[i]
         let row = document.createElement("tr")
         

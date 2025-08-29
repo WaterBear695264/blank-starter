@@ -17,8 +17,10 @@ const showPage = document.getElementById("show")
 const editPage = document.getElementById("edit")
 
 const id = params.get('id');
+const create = params.get('create')
+console.log(typeof(create))
 
-console.log("asd;lfkjasd;lkfjas;dklfj")
+console.log(id)
 
 function defineorigin(){
     if("data" in localStorage){
@@ -44,16 +46,34 @@ function swap2(){
 }
 
 function save() {
-    for(let i = 0; i < 5; i++){
-        console.log(document.getElementById(i.toString()).value)
-        if(document.getElementById(i.toString()).value !== ""){
+
+    if(create === "1" ){
+        let obj = {
+            model_name: "",
+            ram: "",
+            storage: "",
+            cpu: "",
+            gpu: ""
+        }
+        for(let i = 0; i < 5; i++){
+            obj[arrOfTypes[i]] = document.getElementById(i.toString()).value
+        }
+        stringy = JSON.parse(localStorage.getItem("data"))
+        stringy.push(obj)
+        console.log(stringy)
+        localStorage.setItem("data", JSON.stringify(stringy))
+        console.log(localStorage)
+    }else{
+        for(let i = 0; i < 5; i++){
             stringy = JSON.parse(localStorage.getItem("data"))
             stringy[id][arrOfTypes[i]] = document.getElementById(i.toString()).value
             localStorage.setItem("data", JSON.stringify(stringy))
         }
 
     }
-}
+            }
+
+
 
 function updateText(){
     let model = JSON.parse(localStorage.getItem("data"))[id]
@@ -67,7 +87,6 @@ function updateText(){
 stringy = defineorigin()
 console.log(stringy)
 localStorage.setItem("data", stringy);
-
 updateText()
 
 
