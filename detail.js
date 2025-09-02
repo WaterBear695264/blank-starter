@@ -1,6 +1,7 @@
 document.getElementById("saveEdit").addEventListener("click", save)
 document.getElementById("makeEdit").addEventListener("click", swap)
 document.getElementById("view").addEventListener("click", swap2)
+document.getElementById("delete").addEventListener("click", deleteItem)
 // Get the query string from the URL (e.g., ?name=John&age=30)
 const queryString = window.location.search;
 let stringy;
@@ -45,6 +46,18 @@ function swap2(){
     }
 }
 
+function deleteItem(){
+        stringy = JSON.parse(localStorage.getItem("data"))
+        temp1 = stringy.slice(0, Number(id))
+        temp2 = stringy.slice(Number(id) + 1)
+        console.log("aofkhasdkfhj", temp2)
+        combined = temp1.concat(temp2)
+        console.log(temp1, temp2, combined)
+        // stringy = temp1
+        localStorage.setItem("data", JSON.stringify(stringy))
+        console.log(localStorage)
+}
+
 function save() {
 
     if(create === "1" ){
@@ -83,7 +96,6 @@ function updateText(){
     display.innerText += "cpu: " + model.cpu + "\n";
     display.innerText += "gpu: " + model.gpu + "\n";
 }
-
 stringy = defineorigin()
 console.log(stringy)
 localStorage.setItem("data", stringy);
