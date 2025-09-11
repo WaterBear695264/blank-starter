@@ -18,9 +18,9 @@ const showPage = document.getElementById("show")
 const editPage = document.getElementById("edit")
 
 const id = params.get('id');
+let temp = 1;
 const create = params.get('create')
 console.log(typeof(create))
-
 console.log(id)
 
 function defineorigin(){
@@ -35,11 +35,15 @@ function defineorigin(){
 function swap(){
     editPage.style.display = "inline";
     showPage.style.display = "none";
+    temp=1;
+    console.log(temp)
 }
 
 function swap2(){
     editPage.style.display = "none";
     showPage.style.display = "inline";
+    temp=0;
+    console.log(temp)
     updateText()
     for(let i = 0; i < 5; i++){
         document.getElementById(i.toString()).value = ""
@@ -48,14 +52,16 @@ function swap2(){
 
 function deleteItem(){
         stringy = JSON.parse(localStorage.getItem("data"))
-        temp1 = stringy.slice(0, Number(id))
-        temp2 = stringy.slice(Number(id) + 1)
+        let temp1 = stringy.slice(0, Number(id))
+        let temp2 = stringy.slice(Number(id) + 1)
         console.log("aofkhasdkfhj", temp2)
         combined = temp1.concat(temp2)
         console.log(temp1, temp2, combined)
-        // stringy = temp1
+        stringy = combined
+        console.log("real", stringy)
         localStorage.setItem("data", JSON.stringify(stringy))
         console.log(localStorage)
+        updateText();
 }
 
 function save() {
@@ -76,6 +82,7 @@ function save() {
         console.log(stringy)
         localStorage.setItem("data", JSON.stringify(stringy))
         console.log(localStorage)
+        updateText();
     }else{
         for(let i = 0; i < 5; i++){
             stringy = JSON.parse(localStorage.getItem("data"))
@@ -90,12 +97,21 @@ function save() {
 
 function updateText(){
     let model = JSON.parse(localStorage.getItem("data"))[id]
-    display.innerText = "model: " + model.model_name + "\n";
-    display.innerText += "ram: " + model.ram + "\n";
-    display.innerText += "storage: " + model.storage + "\n";
-    display.innerText += "cpu: " + model.cpu + "\n";
-    display.innerText += "gpu: " + model.gpu + "\n";
-}
+    if(create === "1" && temp === 0){
+        model = JSON.parse(localStorage.getItem("data")).at(-1)
+        display.innerText = "model: " + model.model_name + "\n";
+        display.innerText += "ram: " + model.ram + "\n";
+        display.innerText += "storage: " + model.storage + "\n";
+        display.innerText += "cpu: " + model.cpu + "\n";
+        display.innerText += "gpu: " + model.gpu + "\n";
+    }else{
+        display.innerText = "model: " + model.model_name + "\n";
+        display.innerText += "ram: " + model.ram + "\n";
+        display.innerText += "storage: " + model.storage + "\n";
+        display.innerText += "cpu: " + model.cpu + "\n";
+        display.innerText += "gpu: " + model.gpu + "\n";
+    }
+    }
 stringy = defineorigin()
 console.log(stringy)
 localStorage.setItem("data", stringy);

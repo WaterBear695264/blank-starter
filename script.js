@@ -1,6 +1,7 @@
 document.getElementById("button").addEventListener("click",save);
 document.getElementById("button2").addEventListener("click",retrieve);
 document.getElementById("make").addEventListener("click",makeTable);
+document.getElementById("delete").addEventListener("click",deleteTable);
 // document.getElementById("create").addEventListener("create", creat);
 // document.getElementById("lebron").addEventListener("click",makeLebron);
 const output = document.getElementById("output")
@@ -100,6 +101,7 @@ function deleteTable(){
     while (table.firstChild) {
         table.removeChild(table.lastChild);
     }
+
 }
 
 let x = 0;
