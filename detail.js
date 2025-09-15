@@ -17,7 +17,7 @@ const display = document.getElementById("output")
 const showPage = document.getElementById("show")
 const editPage = document.getElementById("edit")
 
-const id = params.get('id');
+let id = params.get('id');
 let temp = 1;
 const create = params.get('create')
 console.log(typeof(create))
@@ -58,6 +58,9 @@ function deleteItem(){
         combined = temp1.concat(temp2)
         console.log(temp1, temp2, combined)
         stringy = combined
+        // console.log("I like abcd", stringy.splice(id, 1))
+        // stringy = stringy.splice(id, 1)
+
         console.log("real", stringy)
         localStorage.setItem("data", JSON.stringify(stringy))
         console.log(localStorage)
@@ -97,14 +100,26 @@ function save() {
 
 function updateText(){
     let model = JSON.parse(localStorage.getItem("data"))[id]
+    console.log("a;sdlfkjas;dlkfj", temp)
     if(create === "1" && temp === 0){
+        console.log("1")
         model = JSON.parse(localStorage.getItem("data")).at(-1)
         display.innerText = "model: " + model.model_name + "\n";
         display.innerText += "ram: " + model.ram + "\n";
         display.innerText += "storage: " + model.storage + "\n";
         display.innerText += "cpu: " + model.cpu + "\n";
         display.innerText += "gpu: " + model.gpu + "\n";
+    }else if(JSON.parse(localStorage.getItem("data"))[id] === undefined && create !== "1"){
+        console.log("2")
+        model = JSON.parse(localStorage.getItem("data")).at(-1)
+        id-=1;
+        display.innerText = "model: " + model.model_name + "\n";
+        display.innerText += "ram: " + model.ram + "\n";
+        display.innerText += "storage: " + model.storage + "\n";
+        display.innerText += "cpu: " + model.cpu + "\n";
+        display.innerText += "gpu: " + model.gpu + "\n";
     }else{
+        console.log("3")
         display.innerText = "model: " + model.model_name + "\n";
         display.innerText += "ram: " + model.ram + "\n";
         display.innerText += "storage: " + model.storage + "\n";
